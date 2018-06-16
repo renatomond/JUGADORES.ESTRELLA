@@ -1,1 +1,1 @@
-# Entra a códigos-MUNDIALITO para añadir tus códigos
+# Entra a JUGADORES.ESTRELLA para añadir tus códigos
