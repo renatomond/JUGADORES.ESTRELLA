@@ -1,1 +1,22 @@
+from tkinter import *
+import time
+
+ventana = Tk()
+ventana.title("MUNDIAL")
+
+#botones
+botonmostrarlist = Button(ventana,text="Mostrar lista")
+botonmostrarlist.pack()
+botonordenar = Button(ventana,text="Ordenar")
+botonordenar.pack()
+botoncrud = Button(ventana,text="CRUD")
+botoncrud.pack()
+botoncargardatos = Button(ventana,text="Cargar datos")
+botoncargardatos.pack()
+botongrabardatos = Button(ventana,text="Grabar datos")
+botongrabardatos.pack()
+botonsalir = Button(ventana,text="Salir",command=ventana.quit)
+botonsalir.pack()
+
+ventana.mainloop()
 
