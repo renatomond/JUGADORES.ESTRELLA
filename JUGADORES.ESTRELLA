@@ -1,10 +1,13 @@
+#descargar pandas desde pycharm
+#descargar xlrd desde pycharm
+
 from tkinter import *
 from tkinter import messagebox
 import pandas as dp
 from pandas import ExcelFile
 from pandas import ExcelWriter
 
-def mostrarlistaconsola():
+def mostrarlista():
     ventana2= Tk()
     ventana2.geometry("500x400")
     titulo=Label(ventana2, text="Lista de jugadores", font="Helvetica")
@@ -12,28 +15,39 @@ def mostrarlistaconsola():
     datos= dp.read_excel('1ra.lista.xlsx',header=1)
     label=Label(ventana2, text=datos)
     label.pack()
-    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy).place(x=200, y=300)
+    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy).place(x=210, y=330)
 
 def ordenar():
     print("ordenado")
 def crud():
-    print("")
+    ventana4=Tk()
+    ventana4.geometry("300x300")
+    titulo=Label(ventana4, text="OPCIONES CRUD", font="Helvetica")
+    titulo.pack()
+    listar=Button(ventana4, text="Listar").place(x=40, y=60)
+    agregar=Button(ventana4, text="Agregar").place(x=40, y=100)
+    quitar=Button(ventana4, text="Quitar").place(x=40, y=140)
+    actualizar=Button(ventana4, text="Actualizar").place(x=40, y=180)
+    salir=Button(ventana4, text="Volver al menú", command=ventana4.destroy).place(x=110, y=230)
+
 def cargardatos():
     print("datos cargados")
+
 def grabardatos():
     print("datos grabados")
 
 ventana = Tk()
-ventana.geometry("600x500")
+ventana.geometry("500x400")
 ventana.title("MUNDIAL")
 
 titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg = "blue", fg = "white")
 titulo.pack(fill=X)
-botonmostrarlist = Button(ventana, text="Mostrar lista",font="Helvetica",command= mostrarlistaconsola).place(x=40, y=80)
-botonordenar = Button(ventana, text="Ordenar",font="Helvetica").place(x=40, y=130)
-botoncrud = Button(ventana, text="CRUD",font="Helvetica").place(x=40, y=180)
-botoncargardatos = Button(ventana, text="Cargar datos",font="Helvetica").place(x=40, y=230)
-botongrabardatos = Button(ventana, text="Grabar datos",font="Helvetica",command=grabardatos).place(x=40, y=280)
+botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).place(x=40, y=80)
+botonordenar = Button(ventana, text="Ordenar",font="Helvetica", command=ordenar).place(x=40, y=130)
+botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).place(x=40, y=180)
+botoncargardatos = Button(ventana, text="Cargar datos", font="Helvetica", command=cargardatos).place(x=40, y=230)
+botongrabardatos = Button(ventana, text="Grabar datos", font="Helvetica", command=grabardatos).place(x=40, y=280)
 botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)
 
 ventana.mainloop()
+
