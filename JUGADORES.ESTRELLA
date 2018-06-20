@@ -37,11 +37,13 @@ def grabardatos():
     print("datos grabados")
 
 ventana = Tk()
-ventana.geometry("500x400")
+ventana.geometry("500x600")
 ventana.title("MUNDIAL")
 
 titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg = "blue", fg = "white")
 titulo.pack(fill=X)
+imagen=PhotoImage(file="Copa.PNG")
+fondo=Label(ventana,image=imagen).place(x=0,y=77)
 botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).place(x=40, y=80)
 botonordenar = Button(ventana, text="Ordenar",font="Helvetica", command=ordenar).place(x=40, y=130)
 botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).place(x=40, y=180)
@@ -50,4 +52,3 @@ botongrabardatos = Button(ventana, text="Grabar datos", font="Helvetica", comman
 botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)
 
 ventana.mainloop()
-
