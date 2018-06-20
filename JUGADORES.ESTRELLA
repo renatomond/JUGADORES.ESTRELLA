@@ -6,8 +6,9 @@ from pandas import ExcelWriter
 def mostrarlistaconsola():
     ventana2= Tk()
     ventana2.geometry("400x400")
-    datos= dp.read_excel('1ra.lista.xlsx')
+    datos= dp.read_excel('1ra.lista.xlsx', head=1 )
     Label(ventana2, text=(datos)).place(x=0,y=50)
+    
     Button(ventana2, text="salir", font="Helvetica", command=ventana2.quit).place(x=180,y=300)
 def ordenar():
     print("")
@@ -22,8 +23,9 @@ ventana = Tk()  # vincula una ventana a la variable 'ventana'
 ventana.geometry("600x500")  # tamaño de la ventana
 ventana.title("MUNDIAL")
 
-titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica").place(x=180, y=10)
+titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg="blue",fg="white").place(x=180, y=10)
 # botones
+titulo.pack(fill=X)
 botonmostrarlist = Button(ventana, text="Mostrar lista",font="Helvetica",command= mostrarlistaconsola).place(x=40, y=80)
 botonordenar = Button(ventana, text="Ordenar",font="Helvetica").place(x=40, y=130)
 botoncrud = Button(ventana, text="CRUD",font="Helvetica").place(x=40, y=180)
