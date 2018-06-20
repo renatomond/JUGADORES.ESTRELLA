@@ -23,7 +23,7 @@ ventana = Tk()  # vincula una ventana a la variable 'ventana'
 ventana.geometry("600x500")  # tamaño de la ventana
 ventana.title("MUNDIAL")
 
-titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg="blue",fg="white").place(x=180, y=10)
+titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg="blue",fg="white")
 # botones
 titulo.pack(fill=X)
 botonmostrarlist = Button(ventana, text="Mostrar lista",font="Helvetica",command= mostrarlistaconsola).place(x=40, y=80)
