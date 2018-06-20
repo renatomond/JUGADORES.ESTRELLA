@@ -6,7 +6,7 @@ from pandas import ExcelWriter
 def mostrarlistaconsola():
     ventana2= Tk()
     ventana2.geometry("400x400")
-    datos= dp.read_excel('1ra.lista.xlsx', head=1 )
+    datos= dp.read_excel('1ra.lista.xlsx', header=1 )
     Label(ventana2, text=(datos)).place(x=0,y=50)
     
     Button(ventana2, text="salir", font="Helvetica", command=ventana2.quit).place(x=180,y=300)
