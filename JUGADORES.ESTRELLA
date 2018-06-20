@@ -1,20 +1,37 @@
 from tkinter import *
+from tkinter import messagebox
+import pandas as dp
+from pandas import ExcelFile
+from pandas import ExcelWriter
+def mostrarlistaconsola():
+    ventana2= Tk()
+    ventana2.geometry("400x400")
+    datos= dp.read_excel('1ra.lista.xlsx')
+    print("Column headings:")
 
-ventana = Tk()  #vincula una ventana a la variable 'ventana'
-ventana.geometry("800x600")  #tamaño de la ventana
+    print(datos.ix[0:])
+    Label(ventana2, text=(datos.ix[0:1])).place(x=0,y=100)
+def ordenar():
+    print("")
+def crud():
+    print("")
+def cargardatos():
+    print("")
+def grabardatos():
+    print("hola")
+
+ventana = Tk()  # vincula una ventana a la variable 'ventana'
+ventana.geometry("600x500")  # tamaño de la ventana
 ventana.title("MUNDIAL")
 
-titulo = Label(ventana,text = "JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018").place(x=330,y=10)
-#botones
-botonmostrarlist = Button(ventana,text="Mostrar lista").place(x=40,y=80)
-botonordenar = Button(ventana,text="Ordenar").place(x=40,y=130)
-botoncrud = Button(ventana,text="CRUD").place(x=40,y=180)
-botoncargardatos = Button(ventana,text="Cargar datos").place(x=40,y=230)
-botongrabardatos = Button(ventana,text="Grabar datos").place(x=40,y=280)
-botonsalir = Button(ventana,text="Salir", command = ventana.quit).place(x=40,y=330)  #command = ventana.quit
-                                                                                        #sirve para cerrar la ventana
-                                                                                            
-
-
-ventana.mainloop()  #despues de cerrar con el boton SALIR, el programa llega a este comando y 
-                        # luego el programa termina
+titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica").place(x=180, y=10)
+# botones
+botonmostrarlist = Button(ventana, text="Mostrar lista",font="Helvetica",command= mostrarlistaconsola).place(x=40, y=80)
+botonordenar = Button(ventana, text="Ordenar",font="Helvetica").place(x=40, y=130)
+botoncrud = Button(ventana, text="CRUD",font="Helvetica").place(x=40, y=180)
+botoncargardatos = Button(ventana, text="Cargar datos",font="Helvetica").place(x=40, y=230)
+botongrabardatos = Button(ventana, text="Grabar datos",font="Helvetica").place(x=40, y=280)
+botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)# command = ventana.quit
+# sirve para cerrar la ventana
+ventana.mainloop()  # despues de cerrar con el boton SALIR, el programa llega a este comando y
+el programa termina
