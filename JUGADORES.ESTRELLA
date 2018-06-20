@@ -8,7 +8,7 @@ def mostrarlistaconsola():
     ventana2.geometry("400x400")
     datos= dp.read_excel('1ra.lista.xlsx')
     print("Column headings:")
-
+    botonsalir= Button(ventana2,text="salir",font= "Helvetica,command= ventana2.quit).place(x=50,y=300)
     print(datos.ix[0:])
     Label(ventana2, text=(datos.ix[0:1])).place(x=0,y=100)
 def ordenar():
