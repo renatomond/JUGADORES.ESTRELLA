@@ -7,10 +7,8 @@ def mostrarlistaconsola():
     ventana2= Tk()
     ventana2.geometry("400x400")
     datos= dp.read_excel('1ra.lista.xlsx')
-    print("Column headings:")
-    botonsalir= Button(ventana2,text="salir",font= "Helvetica,command= ventana2.quit).place(x=50,y=300)
-    print(datos.ix[0:])
-    Label(ventana2, text=(datos.ix[0:1])).place(x=0,y=100)
+    Label(ventana2, text=(datos)).place(x=0,y=50)
+    Button(ventana2, text="salir", font="Helvetica", command=ventana2.quit).place(x=180,y=300)
 def ordenar():
     print("")
 def crud():
@@ -34,4 +32,3 @@ botongrabardatos = Button(ventana, text="Grabar datos",font="Helvetica").place(x
 botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)# command = ventana.quit
 # sirve para cerrar la ventana
 ventana.mainloop()  # despues de cerrar con el boton SALIR, el programa llega a este comando y
-el programa termina
