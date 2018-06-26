@@ -29,7 +29,7 @@ def crud():
     titulo.pack(fill=X)
     botonlistar=Button(ventana4, text="Listar").pack(pady=12)
 
-    botonagregar=Button(ventana4, text="Agregar",command=botonlist()).pack(pady=12)
+    botonagregar=Button(ventana4, text="Agregar",command=botonlist).pack(pady=12)
     botonquitar=Button(ventana4, text="Quitar").pack(pady=12)
     botonactualizar=Button(ventana4, text="Actualizar").pack(pady=12)
     botonsalir2=Button(ventana4, text="Volver al menú", command=ventana4.destroy).pack(pady=12)
