@@ -1,0 +1,45 @@
+from tkinter import *
+import pandas as dp
+
+informacion = dp.DataFrame(
+    {
+        "NOMBRE":["Lionel Messi", "Neymar", "Cristiano Ronaldo", "Luis Suarez"],
+        "PAIS":["Argentina","Brasil","Portugal","Uruguay"],
+        "CLUB":["Barcelona","PSG","Real Madrid","Barcelona"],
+        "POSICION":["Delantero","Extremo","Delantero","Delantero"],
+        "EDAD":[30,26,33,31]
+    }
+)
+
+def mostrarlista():
+    ventana2= Tk()
+    ventana2.geometry("500x400")
+    titulo=Label(ventana2, text="Lista de jugadores", font="Helvetica")
+    titulo.pack()
+    datos = dp.read_csv('D:\PYTHON\MUNDIAL\yokes')
+    label=Label(ventana2, text=datos)
+    label.pack()
+    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy).place(x=210, y=330)
+
+def crud():
+    ventana4=Tk()
+    ventana4.geometry("300x300")
+    titulo=Label(ventana4, text="OPCIONES CRUD", font="Helvetica")
+    titulo.pack()
+    botonlistar=Button(ventana4, text="Listar").place(x=40, y=60)
+    botonagregar=Button(ventana4, text="Agregar").place(x=40, y=100)
+    botonquitar=Button(ventana4, text="Quitar").place(x=40, y=140)
+    botonactualizar=Button(ventana4, text="Actualizar").place(x=40, y=180)
+    botonsalir2=Button(ventana4, text="Volver al menú", command=ventana4.destroy).place(x=110, y=230)
+
+ventana = Tk()
+ventana.geometry("500x400")
+ventana.title("MUNDIAL")
+
+titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg = "blue", fg = "white")
+titulo.pack(fill=X)
+botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).place(x=40, y=80)
+botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).place(x=40, y=180)
+botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)
+
+ventana.mainloop()
