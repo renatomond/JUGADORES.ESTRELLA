@@ -1,45 +1,58 @@
-from tkinter import *
-import pandas as dp
+#descargar xlrd
+#descargar pandas
+#descargar XlsxWriter
 
-informacion = dp.DataFrame(
-    {
-        "NOMBRE":["Lionel Messi", "Neymar", "Cristiano Ronaldo", "Luis Suarez"],
-        "PAIS":["Argentina","Brasil","Portugal","Uruguay"],
-        "CLUB":["Barcelona","PSG","Real Madrid","Barcelona"],
-        "POSICION":["Delantero","Extremo","Delantero","Delantero"],
-        "EDAD":[30,26,33,31]
-    }
-)
+from tkinter import *
+from tkinter import messagebox
+import pandas as dp
+from pandas import ExcelFile
+from pandas import ExcelWriter
+
+dp.set_option('display.max_columns', 6)
+dp.set_option('display.width', 200)
 
 def mostrarlista():
     ventana2= Tk()
-    ventana2.geometry("500x400")
+    ventana2.geometry("500x700")
     titulo=Label(ventana2, text="Lista de jugadores", font="Helvetica")
     titulo.pack()
-    datos = dp.read_csv('D:\PYTHON\MUNDIAL\yokes')
+    datos = dp.read_excel('1ra.lista.xlsx')
     label=Label(ventana2, text=datos)
-    label.pack()
-    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy).place(x=210, y=330)
-
+    label.pack(pady=20)
+    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy)
+    salir.pack(pady=20)
+def ordenar():
+    print("ordenado")
 def crud():
     ventana4=Tk()
     ventana4.geometry("300x300")
-    titulo=Label(ventana4, text="OPCIONES CRUD", font="Helvetica")
-    titulo.pack()
-    botonlistar=Button(ventana4, text="Listar").place(x=40, y=60)
-    botonagregar=Button(ventana4, text="Agregar").place(x=40, y=100)
-    botonquitar=Button(ventana4, text="Quitar").place(x=40, y=140)
-    botonactualizar=Button(ventana4, text="Actualizar").place(x=40, y=180)
-    botonsalir2=Button(ventana4, text="Volver al menú", command=ventana4.destroy).place(x=110, y=230)
+    titulo=Label(ventana4, text="OPCIONES CRUD", font="Helvetica",bg = "black", fg = "white")
+    titulo.pack(fill=X)
+    botonlistar=Button(ventana4, text="Listar").pack(pady=20)
+    botonagregar=Button(ventana4, text="Agregar").pack(pady=20)
+    botonquitar=Button(ventana4, text="Quitar").pack(pady=20)
+    botonactualizar=Button(ventana4, text="Actualizar").pack(pady=20)
+    botonsalir2=Button(ventana4, text="Volver al menú", command=ventana4.destroy).pack(pady=20)
+
+def cargardatos():
+    print("datos cargados")
+
+def grabardatos():
+    print("datos grabados")
 
 ventana = Tk()
-ventana.geometry("500x400")
+ventana.geometry("500x600")
 ventana.title("MUNDIAL")
 
 titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg = "blue", fg = "white")
 titulo.pack(fill=X)
-botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).place(x=40, y=80)
-botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).place(x=40, y=180)
-botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)
+#imagen=PhotoImage(file="Copa.PNG")
+#fondo=Label(ventana,image=imagen).place(x=0,y=77)
+botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).pack(pady=30)
+botonordenar = Button(ventana, text="Ordenar",font="Helvetica", command=ordenar).pack(pady=30)
+botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).pack(pady=30)
+botoncargardatos = Button(ventana, text="Cargar datos", font="Helvetica", command=cargardatos).pack(pady=30)
+botongrabardatos = Button(ventana, text="Grabar datos", font="Helvetica", command=grabardatos).pack(pady=30)
+botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").pack(pady=30)
 
 ventana.mainloop()
