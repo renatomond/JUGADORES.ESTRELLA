@@ -7,7 +7,6 @@ from tkinter import messagebox
 import pandas as dp
 from pandas import ExcelFile
 from pandas import ExcelWriter
-
 dp.set_option('display.max_columns', 6)
 dp.set_option('display.width', 200)
 
@@ -28,11 +27,11 @@ def crud():
     ventana4.geometry("300x300")
     titulo=Label(ventana4, text="OPCIONES CRUD", font="Helvetica",bg = "black", fg = "white")
     titulo.pack(fill=X)
-    botonlistar=Button(ventana4, text="Listar").pack(pady=20)
-    botonagregar=Button(ventana4, text="Agregar").pack(pady=20)
-    botonquitar=Button(ventana4, text="Quitar").pack(pady=20)
-    botonactualizar=Button(ventana4, text="Actualizar").pack(pady=20)
-    botonsalir2=Button(ventana4, text="Volver al menú", command=ventana4.destroy).pack(pady=20)
+    botonlistar=Button(ventana4, text="Listar").pack(pady=12)
+    botonagregar=Button(ventana4, text="Agregar").pack(pady=12)
+    botonquitar=Button(ventana4, text="Quitar").pack(pady=12)
+    botonactualizar=Button(ventana4, text="Actualizar").pack(pady=12)
+    botonsalir2=Button(ventana4, text="Volver al menú", command=ventana4.destroy).pack(pady=12)
 
 def cargardatos():
     print("datos cargados")
@@ -48,11 +47,11 @@ titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font
 titulo.pack(fill=X)
 #imagen=PhotoImage(file="Copa.PNG")
 #fondo=Label(ventana,image=imagen).place(x=0,y=77)
-botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).pack(pady=30)
-botonordenar = Button(ventana, text="Ordenar",font="Helvetica", command=ordenar).pack(pady=30)
-botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).pack(pady=30)
-botoncargardatos = Button(ventana, text="Cargar datos", font="Helvetica", command=cargardatos).pack(pady=30)
-botongrabardatos = Button(ventana, text="Grabar datos", font="Helvetica", command=grabardatos).pack(pady=30)
-botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").pack(pady=30)
+botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).pack(pady=20)
+botonordenar = Button(ventana, text="Ordenar",font="Helvetica", command=ordenar).pack(pady=20)
+botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).pack(pady=20)
+botoncargardatos = Button(ventana, text="Cargar datos", font="Helvetica", command=cargardatos).pack(pady=20)
+botongrabardatos = Button(ventana, text="Grabar datos", font="Helvetica", command=grabardatos).pack(pady=20)
+botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").pack(pady=20)
 
 ventana.mainloop()
