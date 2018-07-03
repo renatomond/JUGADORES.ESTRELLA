@@ -1,54 +1,96 @@
-#descargar pandas desde pycharm
-#descargar xlrd desde pycharm
+#descargar xlrd
+#descargar pandas
+#descargar XlsxWriter
+#descargar csv
 
+import csv
 from tkinter import *
-from tkinter import messagebox
 import pandas as dp
-from pandas import ExcelFile
-from pandas import ExcelWriter
+
+dp.set_option('display.max_columns', 7)
+dp.set_option('display.width', 200)
 
 def mostrarlista():
     ventana2= Tk()
-    ventana2.geometry("500x400")
+    ventana2.geometry("500x600")
     titulo=Label(ventana2, text="Lista de jugadores", font="Helvetica")
     titulo.pack()
-    datos= dp.read_excel('1ra.lista.xlsx',header=1)
+    datos = dp.read_csv('test.csv')
     label=Label(ventana2, text=datos)
-    label.pack()
-    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy).place(x=210, y=330)
+    label.pack(pady=20)
+    salir=Button(ventana2, text="Volver al menú", command=ventana2.destroy)
+    salir.pack(pady=20)
+def guardar():
+    h1=pais.get()+','
+    h2=nombre.get()+','
+    h3=club.get()+','
+    h4=posicion.get()+','
+    h5=edad.get()+','
+    h6=altura.get()+'\n'
+    inputFile= open("test.csv", "a")
+    inputFile.write(h1)
+    inputFile.write(h2)
+    inputFile.write(h3)
+    inputFile.write(h4)
+    inputFile.write(h5)
+    inputFile.write(h6)
+    inputFile.close()
 
-def ordenar():
-    print("ordenado")
-def crud():
-    ventana4=Tk()
-    ventana4.geometry("300x300")
-    titulo=Label(ventana4, text="OPCIONES CRUD", font="Helvetica")
-    titulo.pack()
-    listar=Button(ventana4, text="Listar").place(x=40, y=60)
-    agregar=Button(ventana4, text="Agregar").place(x=40, y=100)
-    quitar=Button(ventana4, text="Quitar").place(x=40, y=140)
-    actualizar=Button(ventana4, text="Actualizar").place(x=40, y=180)
-    salir=Button(ventana4, text="Volver al menú", command=ventana4.destroy).place(x=110, y=230)
+#asdasd
+def quitar_fila():
+    h=open("test.csv")
+    filas=h.readlines()
+    filas.pop(len(filas)-1)
+    h.close()
+    with open("test.csv", "w") as out:
+        for line in filas:
+            out.write(line.strip() + "\n")
 
-def cargardatos():
-    print("datos cargados")
+def guardar_en_excel():
+    p = dp.read_csv("test.csv")
+    p.to_excel("GUARDAR.xlsx")
 
-def grabardatos():
-    print("datos grabados")
+def cargar_excel_a_csv():
+    d = dp.read_excel("GUARDAR.xlsx")
+    d.to_csv("test.csv",index=0)
 
 ventana = Tk()
-ventana.geometry("500x600")
+ventana.geometry("400x400")
 ventana.title("MUNDIAL")
-
 titulo = Label(ventana, text="JUGADORES ESTRELLA DEL \n MUNDIAL RUSIA 2018",font="Helvetica",bg = "blue", fg = "white")
 titulo.pack(fill=X)
-imagen=PhotoImage(file="Copa.PNG")
-fondo=Label(ventana,image=imagen).place(x=0,y=77)
-botonmostrarlist = Button(ventana, text="Mostrar lista", font="Helvetica", command= mostrarlista).place(x=40, y=80)
-botonordenar = Button(ventana, text="Ordenar",font="Helvetica", command=ordenar).place(x=40, y=130)
-botoncrud = Button(ventana, text="CRUD",font="Helvetica", command=crud).place(x=40, y=180)
-botoncargardatos = Button(ventana, text="Cargar datos", font="Helvetica", command=cargardatos).place(x=40, y=230)
-botongrabardatos = Button(ventana, text="Grabar datos", font="Helvetica", command=grabardatos).place(x=40, y=280)
-botonsalir = Button(ventana, text="Salir", command=ventana.quit,font="Helvetica").place(x=40, y=330)
+botonmostrarlist = Button(ventana, text="ABRIR LISTA", font="Helvetica", command= mostrarlista).place(x=80,y=60)
+botoneliminarfila = Button(ventana, text="Quitar\nJugador", font="Helvetica", command=quitar_fila).place(x=280,y=90)
+botonGUARDARlista = Button(ventana, text="Salvar lista\nen excel", font="Helvetica", bg = "Green", command=guardar_en_excel).place(x=270,y=160)
+botonCARGARlista = Button(ventana, text="Cargar lista\na csv", font="Helvetica", bg = "skyblue", command=cargar_excel_a_csv).place(x=270,y=230)
+botonsalir = Button(ventana, text="SALIR", bg="red", command=ventana.quit,font="Helvetica").place(x=290,y=300)
+
+#GUARDARJUGADOR
+#pais#
+pais= StringVar()
+Entry(ventana, textvariable=pais).place(x=100, y=120)
+Label(ventana, text="Pais",font="Helvetica").place(x=30, y=120)
+#nombre
+nombre=StringVar()
+Entry(ventana, textvariable=nombre).place(x=100, y=150)
+Label(ventana,text="Nombre",font="Helvetica").place(x=30,y=150)
+#club
+club = StringVar()
+Entry(ventana, textvariable=club).place(x=100, y=180)
+Label(ventana, text="Club",font="Helvetica").place(x=30, y=180)
+#posicion
+posicion = StringVar()
+Entry(ventana, textvariable=posicion).place(x=100, y=210)
+Label(ventana, text="Posicion",font="Helvetica").place(x=30, y=210)
+#edad
+edad = StringVar()
+Entry(ventana, textvariable=edad).place(x=100, y=240)
+Label(ventana,text="Edad",font="Helvetica").place(x=30,y=240)
+#altura
+altura = StringVar()
+Entry(ventana, textvariable=altura).place(x=100, y=270)
+Label(ventana,text="Altura",font="Helvetica").place(x=30,y=270)
+
+boton=Button(ventana,text="Guardar\nJugador",font="Helvetica", command=guardar).place(x=110,y=300)
 
 ventana.mainloop()
